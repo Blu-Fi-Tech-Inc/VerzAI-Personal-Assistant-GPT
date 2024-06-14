@@ -6,6 +6,9 @@ import OpenAI from 'openai';
 dotenv.config()
 
 const app = express()
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 app.use(express.json());
 
 const openai = new OpenAI({
@@ -24,9 +27,9 @@ app.post('/', async (req, res) => {
 
     const response = await openai.completions.create({
       model: "gpt-3.5-turbo-instruct",
-      prompt: `You are a very helpful and knowledgeable assistant designed to output programmable languages and examples`,
+      prompt: `${prompt}`,
       temperature: 1.2,
-      max_tokens: 1000,
+      max_tokens: 1200,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
@@ -42,4 +45,4 @@ app.post('/', async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server is running on http://localhost:5000'));
+app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
