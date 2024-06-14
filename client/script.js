@@ -77,6 +77,7 @@ const handleSubmit = async (e) => {
 
     try {
         const response = await fetch('https://verzai-personal-assistant-gpt.onrender.com', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
