@@ -46,7 +46,7 @@ function chatStripe(isAi, value, uniqueId) {
             <div class="chat">
                 <div className="profile">
                     <img
-                    src="${isAi ? bot : user}"
+                    src=${isAi ? bot : user}
                     alt="${isAi ? 'bot' : 'user'}"
                     />
                 </div>
@@ -76,8 +76,7 @@ const handleSubmit = async (e) => {
     loader(messageDiv);
 
     try {
-        const response = await fetch('https://verzai-personal-assistant-gpt.onrender.com', {
-            mode: 'no-cors',
+        const response = await fetch('http://localhost:5000', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
