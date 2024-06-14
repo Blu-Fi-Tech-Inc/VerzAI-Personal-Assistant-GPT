@@ -7,7 +7,7 @@ dotenv.config()
 
 const app = express()
 app.use(cors({
-  origin: 'https://verzai-personal-assistant-gpt.onrender.com'
+  origin: 'https://verzai-personal-assistant-gpt.vercel.app/'
 }));
 app.use(express.json());
 
