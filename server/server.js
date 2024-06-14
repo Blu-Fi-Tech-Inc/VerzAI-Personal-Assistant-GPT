@@ -7,7 +7,7 @@ dotenv.config()
 
 const app = express()
 app.use(cors({
-  origin: 'https://verzai-personal-assistant-gpt.vercel.app/'
+  origin: 'http://verzai-personal-assistant-gpt.vercel.app/'
 }));
 app.use(express.json());
 
@@ -45,4 +45,4 @@ app.post('/', async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
+app.listen(5000, () => console.log('Server is running on https://verzai-personal-assistant-gpt.onrender.com'));
