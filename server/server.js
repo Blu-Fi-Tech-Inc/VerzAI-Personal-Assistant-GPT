@@ -5,6 +5,8 @@ import OpenAI from 'openai';
 
 dotenv.config()
 
+const cors = require('cors');
+
 const app = express()
 app.use(cors())
 app.use(express.json());
@@ -12,6 +14,12 @@ app.use(express.json());
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+app.use(cors({
+  origin: 'https://verzai.blufitech.com', // Allow specific origin
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 
 app.get('/', async (req, res) => {
   res.status(200).send({
