@@ -15,12 +15,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.use(cors({
-  origin: 'https://verzai.blufitech.com', // Allow specific origin
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Content-Type,Authorization'
-}));
-
 app.get('/', async (req, res) => {
   res.status(200).send({
     message: 'Well hello there!'
